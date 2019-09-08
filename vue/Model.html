@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>資料雙向綁定</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <section>
+            <div class="lesson1">
+                <div class="title-style">
+                    <div class="input">
+                        {{ name }}，
+                        姓別 {{ sex }}，
+                        年齡 {{ age }}，<br/>
+                        {{ favor.length ? '興趣' : '' }} {{ favor.join(',') }}{{ favor.length ? '，' : '' }}
+                        {{ member ? '已' : '未'}}成為會員
+                    </div>
+                </div>
+                <div class="menu content-style">
+                    <table>
+                        <tr>
+                            <td>姓名：</td>
+                            <td><input v-model="name"></td>
+                        </tr>
+                        <tr>
+                            <td>姓別：</td>
+                            <td>
+                                <input type="radio" v-model="sex" value="女" />女
+                                <input type="radio" v-model="sex" value="男" />男
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>年齡：</td>
+                            <td>
+                                <select v-model="age">
+                                    <option>10~20</option>
+                                    <option>20~30</option>
+                                    <option>30~40</option>
+                                    <option>40以上</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>興趣：</td>
+                            <td>
+                                <input type="checkbox" v-model="favor" value="吃飯" />吃飯
+                                <input type="checkbox" v-model="favor" value="睡覺" />睡覺
+                                <input type="checkbox" v-model="favor" value="打東東" />打東東
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>會員：</td>
+                            <td>
+                                <input type="checkbox" v-model="member">加入
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    let vm = new Vue ({
+        el:'#app',
+        data: {
+            name:'Evelyn',
+            sex: '女',
+            age: '10~20',
+            favor: ['吃飯','睡覺','打東東'],
+            member: true
+        }
+    })
+</script>
+</html>
