@@ -1,3 +1,23 @@
+#app .description .title {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#app .description .number, #app .lesson2 .menulist ul li .number {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#app .title-style {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#app .content-style {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 body {
   text-align: center;
 }
@@ -9,9 +29,16 @@ ul, li {
 }
 
 #app {
+  position: relative;
   width: 700px;
   margin: auto;
   margin-top: 200px;
+}
+
+#app .back-home {
+  position: absolute;
+  right: 0;
+  top: -30px;
 }
 
 #app .logo {
@@ -29,49 +56,59 @@ ul, li {
 #app .description {
   position: relative;
   margin-top: 50px;
+  line-height: 40px;
+  width: 90%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #app .description .number {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   margin-right: -4px;
-  padding: 10px;
   color: #31465f;
   background: #ffe000;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
 }
 
 #app .description .type {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
   color: #fff;
   background: #31465f;
-  padding: 10px;
 }
 
 #app .description .title {
-  padding: 10px;
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
   color: #fff;
   background: #38ba82;
   text-decoration: none;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
 #app .description .arrow {
   position: absolute;
+  top: 13px;
   border: solid black;
   border-width: 0 3px 3px 0;
   display: inline-block;
-  padding: 3px;
+  cursor: pointer;
+  padding: 5px;
 }
 
 #app .description .arrow.right {
-  right: 0;
+  right: -20px;
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
 #app .description .arrow.left {
-  left: 0;
+  left: -20px;
   -webkit-transform: rotate(135deg);
       -ms-transform: rotate(135deg);
           transform: rotate(135deg);
@@ -81,15 +118,11 @@ ul, li {
   padding: 10px 0;
   color: #fff;
   background: #31465f;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 
 #app .content-style {
   padding: 20px 0;
   background: #eee;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
 #app .lesson1 {
@@ -420,38 +453,43 @@ ul, li {
   width: 48%;
   margin: 5px 1%;
   font-size: 14px;
-  display: inline-block;
   background: #38ba82;
   border-radius: 5px;
+  line-height: 30px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+#app .lesson2 .menulist ul li .number {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #333;
+  background: #ffe000;
 }
 
 #app .lesson2 .menulist ul li span {
-  height: 30px;
-  line-height: 30px;
   text-align: center;
   display: inline-block;
 }
 
-#app .lesson2 .menulist ul li .number {
-  width: 10%;
-  color: #333;
-  background: #ffe000;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
 #app .lesson2 .menulist ul li .type {
-  width: 30%;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
   margin-left: -4px;
   color: #fff;
   background: #31465f;
 }
 
 #app .lesson2 .menulist ul li a {
-  width: 56%;
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
   height: 100%;
   padding-left: 5px;
-  display: inline-block;
+  display: block;
   color: #fff;
   text-decoration: none;
 }

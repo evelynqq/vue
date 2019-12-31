@@ -1,3 +1,20 @@
+%right-radius {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+%left-radius {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+%top-radius {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+%bottom-radius {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 body {
     text-align: center;
 }
@@ -9,9 +26,15 @@ ul,li {
 }
 
 #app{
+    position: relative;
     width: 700px;
     margin: auto;
     margin-top: 200px;
+    .back-home {
+        position: absolute;
+        right: 0;
+        top: -30px;
+    }
     .logo {
         width: 300px;
     }
@@ -25,39 +48,43 @@ ul,li {
     .description {
         position: relative;
         margin-top:50px;
+        line-height: 40px;
+        width: 90%;
+        margin: auto;
+        display: flex;
         .number {
+            flex: 1;
             margin-right: -4px;
-            padding: 10px;
             color: #31465f;
             background: #ffe000;
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
+            @extend %left-radius;
         }
         .type {
+            flex: 5;
             color: #fff;
             background: #31465f;
-            padding: 10px;
         }
         .title {
-            padding: 10px;
+            flex: 5;
             color: #fff;
             background: #38ba82;
             text-decoration: none;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
+            @extend %right-radius;
         }
         .arrow {
             position: absolute;
+            top: 13px;
             border: solid black;
             border-width: 0 3px 3px 0;
             display: inline-block;
-            padding: 3px;
+            cursor: pointer;
+            padding: 5px;
             &.right{
-                right: 0;
+                right: -20px;
                 transform: rotate(-45deg);
             }
             &.left {
-                left: 0;
+                left: -20px;
                 transform: rotate(135deg);
             }
         }
@@ -66,14 +93,12 @@ ul,li {
         padding: 10px 0;
         color: #fff;
         background: #31465f;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        @extend %top-radius;
     }
     .content-style {
         padding: 20px 0;
         background: #eee;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+        @extend %bottom-radius;
     }
     .lesson1 {
         line-height: 30px;
@@ -312,33 +337,31 @@ ul,li {
                     width: 48%;
                     margin: 5px 1%;
                     font-size: 14px;
-                    display: inline-block;
                     background: #38ba82;
                     border-radius: 5px;
+                    line-height: 30px;
+                    display: inline-flex;
+                    .number {
+                        flex: 1;
+                        color: #333;
+                        background: #ffe000;
+                        @extend %left-radius;
+                    }
                     span {
-                        height: 30px;
-                        line-height: 30px;
                         text-align: center;
                         display: inline-block;
                     }
-                    .number {
-                        width: 10%;
-                        color: #333;
-                        background: #ffe000;
-                        border-top-left-radius: 5px;
-                        border-bottom-left-radius: 5px;
-                    }
                     .type {
-                        width: 30%;
+                        flex: 3;
                         margin-left: -4px;
                         color: #fff;
                         background: #31465f;
                     }
                     a {
-                        width: 56%;
+                        flex: 6;
                         height: 100%;
                         padding-left: 5px;
-                        display: inline-block;
+                        display: block;
                         color: #fff;
                         text-decoration: none;
                     }
