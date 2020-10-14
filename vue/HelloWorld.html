@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+    <title>Hello World !!</title>
+    <link rel="stylesheet"
+          href="css/style.css">
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <img class="logo"
+             :src="src">
+        <div class="title">{{ title }}</div>
+        <div class="description">
+            <!-- v-on:click 可簡寫 @click -->
+            <a class="arrow left"
+               @click="changeIndex(-1)"
+               v-if="index > 0"></a>
+            <span class="number">{{ index+1 }}</span>
+            <span class="type"> {{ mydata.type }} </span>
+            <a class="title"
+               :href="mydata.link">
+                {{ mydata.title }}
+            </a>
+            <a class="arrow right"
+               @click="changeIndex(1)"
+               v-if="index < total-1"></a>
+        </div>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/data.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        // data: function 可簡寫 data()
+        data() {
+            return {
+                data,
+                src: '../images/logo.png',
+                title: 'Hello World',
+                index: 0
+            }
+        },
+        computed: {
+            // 新增變數可回傳值
+            mydata() {
+                return this.data.menu[this.index]
+            },
+            total() {
+                return this.data.menu.length
+            }
+        },
+        methods: {
+            changeIndex(change) {
+                // % 餘數
+                this.index = (this.index + change + this.total) % this.total
+            }
+        }
+    })
+</script>
+
+</html>
