@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="v-for">
     <h1>跑一般的陣列資料</h1>
     <ul>
       <li v-for="(item, i) in dogs" :key="item">{{ i }}.{{ item }}</li>
@@ -21,12 +21,14 @@ export default {
 };
 </script>
 <style lang="scss">
-li {
-  display: inline-block;
-  width: 150px;
-  height: 50px;
-  background: #eee;
-  margin: 2px;
-  line-height: 50px;
+.v-for {
+  li {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    background: #eee;
+    margin: 2px;
+    line-height: 50px;
+  }
 }
 </style>
